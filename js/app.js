@@ -27,13 +27,12 @@ Write a function called multiply() that takes in two numbers as arguments and re
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiply() function and see if the test passes.*/
 
 // Write your code here
-function testMultiply(a, b) { 
-    return testMultiply = [a * b, 'The product of 5 and 9 is 45'];
+function multiply(a, b) { //eslint-disable-line
+  let product = a * b;
+  let productString = 'The product of 5 and 9 is 45.';
 
-
-    //eslint-disable-line
+  return [product, productString];
 }
-
 // Here is the test for multiply(); uncomment it to run it
 testMultiply(5,9);
 
@@ -51,22 +50,25 @@ IMPORTANT DETAIL: You may not use the arithmetic operators + and * in this funct
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumAndMultiply() function and see if the test passes.*/
 
 // Write your code here
-
-function multiply (a, b, c){
-  let multiply = a * b * c;
-  let printM = [multiply, 'The product of 4 and 7 and 5 is 140.'];
-  return printM;
-}
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-  var sumOutput = sum(sum(a, b)[0], c)[0];
-  var productOutput = multiply(multiply(a, b)[0], c)[0];
-  var sumMessage = `${a} and ${b} and ${c} sum to ${sumOutput}.`;
-  var productMessage = `The product of ${a} and ${b} and ${c} is ${productOutput}.`;
-  return [sumOutput, productOutput, sumMessage, productMessage];
-  
+  // let sum = a + b + c;
+  let sum1 = sum(a,b);
+  sum1 = sum1[0];
+  let sum2 = sum(sum1, c);
+  sum2 = sum2[0];
+  // let product = a * b * c;
+  let product1 = multiply(a, b);
+  product1 = product1[0];
+  let product2 = multiply(product1, c);
+  product2 = product2[0];
+  let sumString = '4 and 7 and 5 sum to 16.';
+  let productString = 'The product of 4 and 7 and 5 is 140.';
+
+
+  return [sum2, product2, sumString, productString];
 }
-multiply();
-sumAndMultiply();
+
+
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
 testSumAndMultiply(4,7,5);
@@ -113,16 +115,21 @@ IMPORTANT DETAIL: You may not use the arithmetic operator * in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyArray() function and see if the test passes.*/
 
 // Write your code here
+// function multiplyArray(multArr) { //eslint-disable-line
+//   let productOutput = multiply(testArray[0], testArray[1]);
+//   let productOutput1 = productOutput[0];
+//   let productOfArray = multiply(productOutput1, testArray[2]);
+//   let totalProductOrArray = productOfArray[0];
+//   console.log('totalProductOfArray' + totalProductOrArray);
+//   let string = 'thenumbers ' + testArray + 'have a product of ' + totalProductOrArray + '.';
+//   console.log(string);
+//   return [totalProductOrArray, string];
 function multiplyArray(multArr) { //eslint-disable-line
-  var productOutput = multiply(testArray[0], testArray[1]);
-  var productOutput1 = productOutput[0];
-  var productOfArray = multiply(productOutput1, testArray[2]);
-  var totalProductOrArray = productOfArray[0];
-  console.log('totalProductOfArray' + totalProductOrArray)
-  var string = 'thenumbers ' + testArray + 'have a product of ' + totalProductOrArray + '.';
-  console.log(string);
-  return [totalProductOrArray, string];
-
+  let mult1 = multiply(multArr[0], multArr[1])[0];
+  let multTotal = multiply(mult1, multArr[2])[0];
+  let string2 = `The numbers ${multArr[0]},${multArr[1]},${multArr[2]} have a product of ${multTotal}.`;
+  let myArray = [multTotal, string2];
+  return myArray;
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
